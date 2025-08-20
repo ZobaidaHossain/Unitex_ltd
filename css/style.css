@@ -1,4 +1,6 @@
 /********** Template CSS **********/
+
+
 .logo{
         width: 9rem;
         height: 5rem;
@@ -15,7 +17,16 @@
     font-weight: 500;
 }
 
+.carousel-indicators [data-bs-target] {
+    background-color: #ffffff;
+    /* White dots */
+}
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+    /* Make arrows visible on light backgrounds */
+}
 /*** Spinner ***/
 #spinner {
     opacity: 0;
@@ -199,6 +210,7 @@
 
 .carousel-control-prev,
 .carousel-control-next {
+
     width: 15%;
 }
 
@@ -207,9 +219,13 @@
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 3.5rem;
-    background-color: var(--bs-primary);
-    border: 15px solid var(--bs-primary);
+    /* background-color: var(--bs-primary); */
+    /* border: 15px solid var(--bs-primary); */
+     background-color: #0a0a2a !important;
+    border: 15px solid #0a0a2a !important;
 }
+
+
 
 @media (max-width: 767.98px) {
     #header-carousel .carousel-item {
