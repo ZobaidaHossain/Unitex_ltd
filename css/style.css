@@ -456,6 +456,168 @@
 }
 
 
+/* founder */
+
+/* Hero / single-slide */
+.header-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Use a CSS variable to set bg color for the hero; default fallback */
+.header-hero { background: var(--hero-bg, #0a0a2a); }
+
+/* Optional gradient overlay to make text readable */
+.header-hero::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.6) 100%);
+  pointer-events: none;
+}
+
+/* Inner container that avoids being hidden by navbar */
+.header-hero .hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: calc(var(--nav-height) + 1rem);
+  padding-bottom: 3rem;
+}
+
+/* Left text column */
+
+
+
+
+/* Right image column */
+.header-hero .hero-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.header-hero .hero-img img{
+  /* max-width: 100%; */
+  width: 30rem;
+  height: auto;
+  display:block;
+  object-fit: contain;
+  transform: translateY(0);
+  will-change: transform;
+  height: 100vh;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.35));
+}
+
+/* Buttons */
+.header-hero .btn-hero {
+  border-radius: 999px;
+  padding: .65rem 1.4rem;
+  font-weight: 600;
+}
+
+/* Responsive behavior */
+@media (max-width: 991.98px) {
+  .header-hero { min-height: 65vh; }
+  .header-hero .hero-img img { max-height: 40vh; }
+}
+
+@media (max-width: 767.98px) {
+  .header-hero {
+    padding-top: calc(var(--nav-height) + 0.5rem);
+    text-align: center;
+  }
+  .header-hero .hero-inner .row { align-items: center; }
+  .header-hero .hero-text { order: 2; }
+  .header-hero .hero-img { order: 1; margin-bottom: 1rem; }
+}
+
+/* Hero left text styling (matching your image) */
+.heading_head {
+  font-family: 'Tomato Grotesk', Arial, system-ui;
+  font-weight: 500;
+  line-height: 1.05;
+  text-transform: capitalize;
+  color: #ffffff;
+  margin: 0 0 0.2rem 0;
+  /* responsive size: small -> large */
+  font-size: 4rem;
+  letter-spacing: -0.02em;
+}
+
+/* container for heading so spacing is easier to control */
+.heading {
+  margin-bottom: 1.25rem;
+}
+
+/* Quote block */
+.quote-wrap {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  margin-top: 0.75rem;
+  max-width: 58ch; /* restrict line-length for readability */
+}
+
+.quote-mark {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  color: #ffffff;
+  transform: translateY(6px);
+  line-height: 0.8;
+  opacity: 0.98;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* Quote text */
+.quote-text {
+  color: rgba(255,255,255,0.95);
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* thin divider */
+.hero-hr {
+  border: none;
+  height: 1px;
+  background: white;
+  width: 80%;
+  margin: 1.5rem 0;
+}
+
+/* author lines */
+.hero-author {
+  color: #ffffff;
+  margin: 0;
+  font-weight: 500;
+  font-size: clamp(.9rem, 1.6vw, 1rem);
+}
+.hero-author-role {
+  color: rgba(255,255,255,0.9);
+  margin-top: 0.25rem;
+  font-weight: 400;
+  font-size: clamp(.85rem, 1.4vw, .95rem);
+}
+
+/* make sure left column content sits nicely under navbar */
+.header-hero .hero-inner { padding-top: calc(var(--nav-height, 80px) + 1rem); }
+
+/* optional spacing for the left content */
+.col-lg-6.hero-text { padding-left: 2rem; padding-right: 2rem; }
+
+/* mobile behavior: center text and tighten sizes */
+@media (max-width: 767.98px) {
+  .heading_head { font-size: clamp(1.8rem, 9.5vw, 3rem); text-align: center; }
+  .quote-wrap { justify-content: center; text-align: center; flex-direction: column; align-items: center; }
+  .quote-mark { transform: translateY(0); }
+  .hero-hr { margin-left: auto; margin-right: auto; }
+  .col-lg-6.hero-text { padding-left: 1rem; padding-right: 1rem; }
+}
 /*** Button ***/
 .btn {
     transition: .5s;
