@@ -1,6 +1,420 @@
 /********** Template CSS **********/
+:root {
+    --nav-height: 72px;
+    --accent: #ffffff;
+    /* highlight color */
+    --darkbtn: #0a0a2a;
+    /* button color */
+}
+
+/* --- Navbar (transparent by default) --- */
+.navbar {
+    background: rgba(255, 255, 255, 0);
+    /* transparent */
+    transition: background 0.3s ease, padding 0.25s ease, box-shadow 0.25s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    height: var(--nav-height);
+}
+
+/* Links when transparent */
+.navbar .nav-link {
+    color: white !important;
+    font-weight: 500;
+}
+
+.navbar .navbar-brand img.logo {
+    height: 44px;
+}
+
+/* Toggler icon when transparent */
+.navbar .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* --- Navbar after scroll --- */
+.navbar.scrolled {
+    background: #ffffff !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.navbar.scrolled .nav-link {
+    color: #0a0a2a !important;
+}
+
+.navbar.scrolled .navbar-toggler {
+    border-color: rgba(10, 10, 10, 0.08);
+}
 
 
+/* Hover + active link */
+/* .navbar .nav-link.active,
+.navbar .nav-link:hover {
+   
+    color: #0a0a2a !important;
+} */
+
+.navbar.scrolled .nav-link.active,
+.navbar.scrolled .nav-link:hover {
+    /* color: var(--accent) !important; */
+    color: #3368c6 !important;
+}
+
+.logo_part {
+    border: 2px solid white;
+    padding: 4px;
+    /* optional for spacing around logo */
+    display: inline-block;
+    border-radius: 6px;
+    /* optional, makes corners rounded */
+    margin-left: 2rem;
+
+}
+
+/* When navbar scrolled */
+.navbar.scrolled .logo_part {
+    border: 2px solid #0a0a2a;
+}
+
+.contact_part {
+    border: 2px solid white;
+    color: white;
+    border-radius: 6px;
+    margin: 11px;
+}
+
+.navbar.scrolled .contact_part {
+    border: 2px solid #0a0a2a;
+}
+.navbar.scrolled .contact_part i{
+    color: #0a0a2a !important;
+    font-weight: bold;
+}
+
+
+.logo_part .logo {
+    max-height: 80px;
+    /* Prevents oversized logo */
+    height: auto;
+}
+
+
+
+/*  */
+/* Make first-level dropdown open on hover */
+.nav-item.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+/* Position for nested dropdowns */
+.dropdown-menu li {
+    position: relative;
+}
+
+/* Hide submenus by default */
+.dropdown-submenu>.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 0.1rem;
+}
+
+/* Show nested submenu only on hover */
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+/* Optional: for submenu opening to the left */
+.dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+}
+
+.dropdown-item {
+    padding: 0.75rem 1rem;
+}
+
+@media (max-width: 991.98px) {
+
+    /* Make navbar solid + fixed for readability on phones/tablets */
+    .navbar {
+        position: fixed;
+        background: #ffffff !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+    }
+
+    .navbar-nav {
+        background: #ffffff !important;
+    }
+
+    /* Dark text/icons on light background */
+    .navbar .nav-link {
+        color: #0a0a2a !important;
+    }
+
+    .navbar .navbar-toggler {
+        border-color: rgba(10, 10, 10, .15);
+    }
+
+    .navbar .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(10,10,42,0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    /* Match logo/contact borders to dark on light bg */
+    .logo_part {
+        border-color: #0a0a2a;
+    }
+
+    .contact_part {
+        border-color: #0a0a2a;
+        color: #0a0a2a;
+        width: fit-content;
+        padding: 0.5rem;
+        margin: 0px !important
+    }
+
+    .contact_part i {
+        color: #0a0a2a !important;
+    }
+
+    /* Disable hover-open on touch; rely on click only */
+    .nav-item.dropdown:hover>.dropdown-menu {
+        display: none;
+    }
+
+    /* Make dropdowns act like an accordion inside the off-canvas area */
+    .navbar .dropdown-menu {
+        position: static;
+        /* stack under item */
+        float: none;
+        box-shadow: none;
+        border: 0;
+        padding: .25rem 0;
+        margin: 0 0 .25rem 0;
+    }
+
+    /* Hide nested submenus by default; JS will toggle .show */
+    .dropdown-submenu>.dropdown-menu {
+        display: none !important;
+        position: static;
+        /* stack within flow */
+        margin-left: 0;
+    }
+
+    .dropdown-submenu>.dropdown-menu.show {
+        display: block !important;
+    }
+
+    /* Touch-friendly targets */
+    .dropdown-item {
+        padding: .75rem 1rem;
+    }
+}
+
+/*** Navbar ***/
+.sticky-top {
+    top: -100px;
+    transition: .5s;
+}
+
+.navbar .navbar-nav .nav-link {
+    /* margin-right: 35px; */
+    margin-right: 4rem;
+    padding: 20px 0;
+    color: var(--bs-dark);
+    font-size: 18px;
+    font-weight: 500;
+    outline: none;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: var(--bs-primary);
+}
+
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+@media (max-width: 991.98px) {
+    .navbar .navbar-nav .nav-link {
+        margin-right: 0;
+        padding: 10px 0;
+    }
+
+    .navbar .navbar-nav {
+        /* margin-top: 15px; */
+        border-top: 1px solid #EEEEEE;
+        padding-left: 2rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .sticky-top {
+        margin-top: -34px;
+    }
+
+    .navbar {
+        height: 68px;
+    }
+
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        border: none;
+        margin-top: 0;
+        top: 150%;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        top: 100%;
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+}
+
+.carousel-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      /* Black overlay (50% opacity) */
+      z-index: 1;
+  }
+
+  .carousel-caption {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      /* Above overlay */
+      text-align: center;
+      width: 100%;
+  }
+
+   /* Fixed section height */
+   .testimony-section {
+       height: 35rem;
+       /* adjust as needed */
+       overflow: hidden;
+   }
+
+   /* Columns are scroll viewports */
+   .client-column {
+       height: 100%;
+       overflow: hidden;
+       position: relative;
+   }
+
+   /* The animated track (contains two identical .items) */
+   .client-track {
+       display: flex;
+       flex-direction: column;
+       will-change: transform;
+       animation: marquee-up 16s linear infinite;
+   }
+
+   /* Left column: bottom -> top */
+   .move-up .client-track {
+       animation-direction: normal;
+   }
+
+   /* Right column: top -> bottom */
+   .move-down .client-track {
+       animation-direction: reverse;
+       /* same keyframes, reverse direction */
+   }
+
+   /* One set of logos */
+   .items {
+       display: flex;
+       flex-direction: column;
+   }
+
+   /* Keyframes: move the height of one set (-50%) because we duplicated content */
+   @keyframes marquee-up {
+       from {
+           transform: translateY(0);
+       }
+
+       to {
+           transform: translateY(-50%);
+       }
+   }
+
+   /* Optional: pause on hover */
+   .client-column:hover .client-track {
+       animation-play-state: paused;
+   }
+
+   /* Accessibility: respect reduced motion */
+   @media (prefers-reduced-motion: reduce) {
+       .client-track {
+           animation: none;
+       }
+   }
+  /* start state (hidden + shifted down) */
+  .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease-out, transform .7s ease-out;
+      will-change: opacity, transform;
+  }
+
+  /* variants (you can reuse later) */
+  .reveal[data-animate="up"] {
+      transform: translateY(28px);
+  }
+
+  .reveal[data-animate="left"] {
+      transform: translateX(-32px);
+  }
+
+  .reveal[data-animate="right"] {
+      transform: translateX(32px);
+  }
+
+  /* when visible */
+  .reveal.in-view {
+      opacity: 1;
+      transform: none;
+  }
+
+
+  @media (prefers-reduced-motion: reduce) {
+      .reveal {
+          transition: none;
+          transform: none;
+          opacity: 1;
+      }
+  }
 .logo{
         width: 9rem;
         height: 5rem;
@@ -116,76 +530,6 @@
 
 .icon-box-light::before {
     background: var(--bs-light);
-}
-
-
-/*** Navbar ***/
-.sticky-top {
-    top: -100px;
-    transition: .5s;
-}
-
-.navbar .navbar-nav .nav-link {
-    /* margin-right: 35px; */
-    margin-right: 4rem;
-    padding: 20px 0;
-    color: var(--bs-dark);
-    font-size: 18px;
-    font-weight: 500;
-    outline: none;
-}
-
-.navbar .navbar-nav .nav-link:hover,
-.navbar .navbar-nav .nav-link.active {
-    color: var(--bs-primary);
-}
-
-.navbar .dropdown-toggle::after {
-    border: none;
-    content: "\f107";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    vertical-align: middle;
-    margin-left: 8px;
-}
-
-@media (max-width: 991.98px) {
-    .navbar .navbar-nav .nav-link  {
-        margin-right: 0;
-        padding: 10px 0;
-    }
-
-    .navbar .navbar-nav {
-        margin-top: 15px;
-        border-top: 1px solid #EEEEEE;
-    }
-}
-
-@media (min-width: 992px) {
-    .sticky-top {
-        margin-top: -34px;
-    }
-
-    .navbar {
-        height: 68px;
-    }
-
-    .navbar .nav-item .dropdown-menu {
-        display: block;
-        border: none;
-        margin-top: 0;
-        top: 150%;
-        opacity: 0;
-        visibility: hidden;
-        transition: .5s;
-    }
-
-    .navbar .nav-item:hover .dropdown-menu {
-        top: 100%;
-        visibility: visible;
-        transition: .5s;
-        opacity: 1;
-    }
 }
 
 

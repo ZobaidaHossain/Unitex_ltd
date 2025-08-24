@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Labsky - Laboratory HTML Website Template</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Red+Rose:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<style>
+
+
+/* Keep navbar overlaying the hero */
+.navbar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 1050;
+  background: transparent !important;
+}
+
+/* Hero / single-slide */
+.header-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Use a CSS variable to set bg color for the hero; default fallback */
+.header-hero { background: var(--hero-bg, #0a0a2a); }
+
+/* Optional gradient overlay to make text readable */
+.header-hero::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.6) 100%);
+  pointer-events: none;
+}
+
+/* Inner container that avoids being hidden by navbar */
+.header-hero .hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: calc(var(--nav-height) + 1rem);
+  padding-bottom: 3rem;
+}
+
+/* Left text column */
+
+
+
+
+/* Right image column */
+.header-hero .hero-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.header-hero .hero-img img{
+  /* max-width: 100%; */
+  width: 30rem;
+  height: auto;
+  display:block;
+  object-fit: contain;
+  transform: translateY(0);
+  will-change: transform;
+  height: 100vh;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.35));
+}
+
+/* Buttons */
+.header-hero .btn-hero {
+  border-radius: 999px;
+  padding: .65rem 1.4rem;
+  font-weight: 600;
+}
+
+/* Responsive behavior */
+@media (max-width: 991.98px) {
+  .header-hero { min-height: 65vh; }
+  .header-hero .hero-img img { max-height: 40vh; }
+}
+
+@media (max-width: 767.98px) {
+  .header-hero {
+    padding-top: calc(var(--nav-height) + 0.5rem);
+    text-align: center;
+  }
+  .header-hero .hero-inner .row { align-items: center; }
+  .header-hero .hero-text { order: 2; }
+  .header-hero .hero-img { order: 1; margin-bottom: 1rem; }
+}
+
+/* Hero left text styling (matching your image) */
+.heading_head {
+  font-family: 'Tomato Grotesk', Arial, system-ui;
+  font-weight: 500;
+  line-height: 1.05;
+  text-transform: capitalize;
+  color: #ffffff;
+  margin: 0 0 0.2rem 0;
+  /* responsive size: small -> large */
+  font-size: 4rem;
+  letter-spacing: -0.02em;
+}
+
+/* container for heading so spacing is easier to control */
+.heading {
+  margin-bottom: 1.25rem;
+}
+
+/* Quote block */
+.quote-wrap {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  margin-top: 0.75rem;
+  max-width: 58ch; /* restrict line-length for readability */
+}
+
+.quote-mark {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  color: #ffffff;
+  transform: translateY(6px);
+  line-height: 0.8;
+  opacity: 0.98;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* Quote text */
+.quote-text {
+  color: rgba(255,255,255,0.95);
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* thin divider */
+.hero-hr {
+  border: none;
+  height: 1px;
+  background: white;
+  width: 80%;
+  margin: 1.5rem 0;
+}
+
+/* author lines */
+.hero-author {
+  color: #ffffff;
+  margin: 0;
+  font-weight: 500;
+  font-size: clamp(.9rem, 1.6vw, 1rem);
+}
+.hero-author-role {
+  color: rgba(255,255,255,0.9);
+  margin-top: 0.25rem;
+  font-weight: 400;
+  font-size: clamp(.85rem, 1.4vw, .95rem);
+}
+
+/* make sure left column content sits nicely under navbar */
+.header-hero .hero-inner { padding-top: calc(var(--nav-height, 80px) + 1rem); }
+
+/* optional spacing for the left content */
+.col-lg-6.hero-text { padding-left: 2rem; padding-right: 2rem; }
+
+/* mobile behavior: center text and tighten sizes */
+@media (max-width: 767.98px) {
+  .heading_head { font-size: clamp(1.8rem, 9.5vw, 3rem); text-align: center; }
+  .quote-wrap { justify-content: center; text-align: center; flex-direction: column; align-items: center; }
+  .quote-mark { transform: translateY(0); }
+  .hero-hr { margin-left: auto; margin-right: auto; }
+  .col-lg-6.hero-text { padding-left: 1rem; padding-right: 1rem; }
+}
+
+</style>
+
+<body>
+  <!-- Spinner Start -->
+  <div id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+  </div>
+  <!-- Spinner End -->
+
+
+
+  <div class="container-fluid">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+
+        <div class="logo_part">
+          <a href="index.html" style="justify-content: center; align-items: center; " class="navbar-brand">
+            <img class="logo" src="img/logo_7.png" alt="Logo">
+          </a>
+        </div>
+
+        <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav mx-auto">
+            <a href="index.html" class="nav-item nav-link ">Home</a>
+
+
+            <li class=" dropdown">
+              <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">About</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item " href="#"> 
+                    
+                    The Founder &raquo; </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="founder.html">CEO Messages </a></li>
+                            <hr style="color: black; margin: 0px 1rem;">
+                    <li><a class="dropdown-item" href="#">Board of Management</a></li>
+
+
+                  </ul>
+                </li>
+                <hr style="color: black; margin: 0px 1rem;">
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item " href="#"> Profile &raquo; </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Company profile</a></li>
+                            <hr style="color: black; margin: 0px 1rem;">
+                    <li><a class="dropdown-item" href="#">Company Mission</a></li>
+                            <hr style="color: black; margin: 0px 1rem;">
+                    <li><a class="dropdown-item" href="#">Company Vision</a></li>
+                  </ul>
+                </li>
+                     <hr style="color: black; margin: 0px 1rem;">
+
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item " href="#"> Why With Us &raquo; </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Quality Assurance</a></li>
+                            <hr style="color: black; margin: 0px 1rem;">
+                    <li><a class="dropdown-item" href="#">Sustainibility</a></li>
+                            <hr style="color: black; margin: 0px 1rem;">
+                    <li><a class="dropdown-item" href="#">Green Technology</a></li>
+                            <hr style="color: black; margin: 0px 1rem;">
+                    <li><a class="dropdown-item" href="#">Health & Safety</a></li>
+                            <hr style="color: black; margin: 0px 1rem;">
+                    <li><a class="dropdown-item" href="#">Code of Conduct</a></li>
+                            <hr style="color: black; margin: 0px 1rem;">
+                    <li><a class="dropdown-item" href="#">Workers Benifit</a></li>
+                            <hr style="color: black; margin: 0px 1rem;">
+                    <li><a class="dropdown-item" href="#">Compliance</a></li>
+                            <hr style="color: black; margin: 0px 1rem;">
+                    <li><a class="dropdown-item" href="#">Transportation</a></li>
+                  </ul>
+                </li>
+                     <hr style="color: black; margin: 0px 1rem;">
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item " href="#"> Factory & units </a>
+
+                </li>
+                     <hr style="color: black; margin: 0px 1rem;">
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item " href="#"> Capacity & Machineries </a>
+
+                </li>
+                     <hr style="color: black; margin: 0px 1rem;">
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item " href="#"> Achievements &raquo; </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Award & Certifications</a></li>
+                            <hr style="color: black; margin: 0px 1rem;">
+                    <li><a class="dropdown-item" href="#">Membership</a></li>
+
+                  </ul>
+                </li>
+                     <hr style="color: black; margin: 0px 1rem;">
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item " href="#"> Company CSR </a>
+                </li>
+                    
+              </ul>
+            </li>
+            <li class=" dropdown">
+              <a href="about.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Product</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item " href="#"> Woven Label </a>
+                   <hr style="color: black; margin: 0px 1rem;">
+                  <a class="dropdown-item " href="#"> Off-Set Label </a>
+                   <hr style="color: black; margin: 0px 1rem;">
+                  <a class="dropdown-item " href="#"> Printed Fabrics Label (PFL) </a>
+                   <hr style="color: black; margin: 0px 1rem;">
+                  <a class="dropdown-item " href="#">Poly</a>
+                </li>
+
+              </ul>
+            </li>
+                  <li class=" dropdown">
+              <a href="about.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Machines</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item " href="#"> Woven Machines </a>
+                   <hr style="color: black; margin: 0px 1rem;">
+                  <a class="dropdown-item " href="#"> Offset Machines </a>
+                   <hr style="color: black; margin: 0px 1rem;">
+                  <a class="dropdown-item " href="#"> Printed Label (PFL) Machines </a>
+                   <hr style="color: black; margin: 0px 1rem;">
+                  <a class="dropdown-item " href="#">Poly Machines</a>
+                   <hr style="color: black; margin: 0px 1rem;">
+                  <a class="dropdown-item " href="#">Heat Transfer Label Machines</a>
+                   <hr style="color: black; margin: 0px 1rem;">
+                  <a class="dropdown-item " href="#">Narrow Fabrics Machines</a>
+                   <hr style="color: black; margin: 0px 1rem;">
+                  <a class="dropdown-item " href="#">PVC Machines</a>
+                   <hr style="color: black; margin: 0px 1rem;">
+                  <a class="dropdown-item " href="#">Others</a>
+                </li>
+
+              </ul>
+            </li>
+            <a href="products.html" class="nav-item nav-link">Our Clients</a>
+            <li class=" dropdown">
+              <a href="about.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">News & Events
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item" href="#"> New Announcement
+                  </a>
+                   <hr style="color: black; margin: 0px 1rem;">
+                  <a class="dropdown-item " href="#"> New Locations
+                  </a>
+                   <hr style="color: black; margin: 0px 1rem;">
+                  <a class="dropdown-item " href="#">certification
+                  </a>
+                   <hr style="color: black; margin: 0px 1rem;">
+                  <a class="dropdown-item " href="#"> Latest Achievements
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+            <span class="d-flex align-items-center gap-2 px-3  contact_part">
+              <a href="contact.html" class="nav-item nav-link p-0 m-0 text-white" style="font-weight: 500;">Contact</a>
+              <i style="color: #ffffff;" class="bi bi-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+<!-- Hero Start (single section, not carousel) -->
+<div class="container-fluid header-hero px-0" style="--hero-bg: #0a0a2a;">
+  <div class="container hero-inner">
+    <div class="row align-items-center justify-content-around">
+      <!-- Left: text -->
+   
+<div class="col-lg-6 hero-text">
+  <div class="heading">
+    <h1 class="heading_head">You Inspire,</h1>
+    <h1 class="heading_head">We March Forward</h1>
+  </div>
+
+  <div class="quote-wrap">
+    <div class="quote-mark">“</div>
+    <p class="quote-text">
+      Never compromise on ethical business practices and the quality we provide to our customers.
+      It’s the trust we’re trading.
+    </p>
+  </div>
+
+  <hr class="hero-hr">
+
+  <div class="author-block">
+    <p class="hero-author">Anjuman Ara Begum</p>
+    <p class="hero-author-role">Chairman, Unitex Group</p>
+  </div>
+</div>
+
+      <!-- Right: image -->
+      <div class="col-lg-6 hero-img">
+        <!-- Replace the src with your image path, or swap to <picture> for responsive sources -->
+        <img src="img/chairman.png" alt="Product labels illustration" />
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Hero End -->
+
+    <!-- Director Start -->
+    <div class="container-fluid container-team py-5">
+        <div class="container pb-5">
+            <div class="row g-5 align-items-center mb-5">
+                <div class="col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                    <img class="img-fluid w-100" src="img/director.jpg" alt="">
+                </div>
+                <div class="col-md-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h1 class="display-6 mb-3">Dr. John Martin</h1>
+                    <p class="mb-1">CEO & Founder</p>
+                    <p class="mb-5">Labsky, New York, USA</p>
+                    <h3 class="mb-3">Biography</h3>
+                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue, iaculis id elit eget, ultrices pulvinar tortor. Quisque vel lorem porttitor, malesuada arcu quis, fringilla risus. Pellentesque eu consequat augue.</p>
+                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue, iaculis id elit eget, ultrices pulvinar tortor. Quisque vel lorem porttitor, malesuada arcu quis, fringilla risus. Pellentesque eu consequat augue.</p>
+                    <div class="d-flex">
+                        <a class="btn btn-lg-square btn-primary me-2" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-lg-square btn-primary me-2" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-lg-square btn-primary me-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-lg-square btn-primary me-2" href=""><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5 align-items-center mb-5">
+               
+                <div class="col-md-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h1 class="display-6 mb-3">Dr. John Martin</h1>
+                    <p class="mb-1">CEO & Founder</p>
+                    <p class="mb-5">Labsky, New York, USA</p>
+                    <h3 class="mb-3">Biography</h3>
+                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue, iaculis id elit eget, ultrices pulvinar tortor. Quisque vel lorem porttitor, malesuada arcu quis, fringilla risus. Pellentesque eu consequat augue.</p>
+                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue, iaculis id elit eget, ultrices pulvinar tortor. Quisque vel lorem porttitor, malesuada arcu quis, fringilla risus. Pellentesque eu consequat augue.</p>
+                    <div class="d-flex">
+                        <a class="btn btn-lg-square btn-primary me-2" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-lg-square btn-primary me-2" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-lg-square btn-primary me-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-lg-square btn-primary me-2" href=""><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                 <div class="col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                    <img class="img-fluid w-100" src="img/chairman.png" alt="">
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-1">Alex Robin</h5>
+                            <span>Lab Assistant</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-1">Andrew Bon</h5>
+                            <span>Lab Assistant</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-1">Martin Tompson</h5>
+                            <span>Lab Assistant</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="img/team-5.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-square btn-light mx-1" href=""><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-1">Clarabelle Samber</h5>
+                            <span>Lab Assistant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Director End -->
+     
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer position-relative bg-dark text-white-50 py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row g-5 py-5">
+                <div class="col-lg-6 pe-lg-5">
+                    <a href="index.html" class="navbar-brand">
+                        <h1 class="h1 text-primary mb-0">Lab<span class="text-white">sky</span></h1>
+                    </a>
+                    <p class="fs-5 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue, iaculis id elit eget, ultrices pulvinar tortor.</p>
+                    <p><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</p>
+                    <p><i class="fa fa-phone-alt me-2"></i>+012 345 67890</p>
+                    <p><i class="fa fa-envelope me-2"></i>info@example.com</p>
+                    <div class="d-flex mt-4">
+                        <a class="btn btn-lg-square btn-primary me-2" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-lg-square btn-primary me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-lg-square btn-primary me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-lg-square btn-primary me-2" href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <div class="row g-5">
+                        <div class="col-sm-6">
+                            <h4 class="text-light mb-4">Quick Links</h4>
+                            <a class="btn btn-link" href="">About Us</a>
+                            <a class="btn btn-link" href="">Contact Us</a>
+                            <a class="btn btn-link" href="">Our Services</a>
+                            <a class="btn btn-link" href="">Terms & Condition</a>
+                            <a class="btn btn-link" href="">Support</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4 class="text-light mb-4">Popular Links</h4>
+                            <a class="btn btn-link" href="">About Us</a>
+                            <a class="btn btn-link" href="">Contact Us</a>
+                            <a class="btn btn-link" href="">Our Services</a>
+                            <a class="btn btn-link" href="">Terms & Condition</a>
+                            <a class="btn btn-link" href="">Support</a>
+                        </div>
+                        <div class="col-sm-12">
+                            <h4 class="text-light mb-4">Newsletter</h4>
+                            <div class="w-100">
+                                <div class="input-group">
+                                    <input type="text" class="form-control border-0 py-3 px-4" style="background: rgba(255, 255, 255, .1);" placeholder="Your Email Address"><button class="btn btn-primary px-4">Sign Up</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright bg-dark text-white-50 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; <a href="#">Your Site Name</a>. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    <p class="mb-0">Designed by <a href="https://htmlcodex.com">HTML Codex</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+  (function () {
+    const DESKTOP_BP = 992;
+
+    function handleScroll() {
+      // Keep your scroll effect for desktop; mobile is already solid.
+      if (window.innerWidth >= DESKTOP_BP) {
+        const nav = document.querySelector('.navbar');
+        if (!nav) return;
+        if (window.scrollY > 10) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      }
+    }
+
+    function initMobileSubmenus() {
+      // Remove existing handlers first (if re-init on resize)
+      document.querySelectorAll('.dropdown-submenu > a[data-submenu-bound]').forEach(a => {
+        a.replaceWith(a.cloneNode(true));
+      });
+
+      if (window.innerWidth >= DESKTOP_BP) return; // desktop unchanged
+
+      // Toggle nested submenus on click
+      document.querySelectorAll('.dropdown-submenu > a').forEach(anchor => {
+        anchor.setAttribute('data-submenu-bound', '1');
+        anchor.addEventListener('click', function (e) {
+          // If the anchor has an href that navigates, prevent it so we can toggle
+          e.preventDefault();
+          e.stopPropagation();
+
+          const submenu = this.nextElementSibling; // the nested .dropdown-menu
+          if (!submenu) return;
+
+          // Close any open sibling submenus
+          const siblings = this.closest('li').parentElement.querySelectorAll('.dropdown-submenu > .dropdown-menu.show');
+          siblings.forEach(s => { if (s !== submenu) s.classList.remove('show'); });
+
+          // Toggle current
+          submenu.classList.toggle('show');
+        });
+      });
+
+      // When a top-level dropdown closes, also close any nested ones inside it
+      document.querySelectorAll('.dropdown').forEach(drop => {
+        drop.addEventListener('hide.bs.dropdown', () => {
+          const openSubs = drop.querySelectorAll('.dropdown-submenu > .dropdown-menu.show');
+          openSubs.forEach(s => s.classList.remove('show'));
+        });
+      });
+    }
+
+    // Prevent dropdown from closing when clicking inside on mobile (so users can expand submenus)
+    function keepOpenOnInsideClick() {
+      document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        menu.addEventListener('click', function (e) {
+          if (window.innerWidth < DESKTOP_BP) e.stopPropagation();
+        });
+      });
+    }
+
+    // Init on load
+    document.addEventListener('DOMContentLoaded', function () {
+      handleScroll();
+      initMobileSubmenus();
+      keepOpenOnInsideClick();
+    });
+
+    // Update on scroll/resize
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', function () {
+      // Reset any open mobile submenus when crossing breakpoints
+      if (window.innerWidth >= DESKTOP_BP) {
+        document.querySelectorAll('.dropdown-submenu > .dropdown-menu.show').forEach(s => s.classList.remove('show'));
+      }
+      handleScroll();
+      initMobileSubmenus();
+    });
+  })();
+</script>
+</body>
+
+</html>
