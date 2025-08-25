@@ -31,7 +31,36 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
+<style>
+.company-csr {
+  background: #f8f9fa;
+}
 
+.csr-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+}
+
+.csr-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+
+.csr-card img {
+  object-fit: cover;
+  height: 250px;
+}
+
+.csr-card h5 {
+  color: #0a0a2a;
+}
+
+.csr-card p {
+  font-size: 0.95rem;
+}
+  </style>
+<body>
+    
     <!-- Spinner Start -->
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -40,7 +69,8 @@
     <!-- Spinner End -->
 
 
-<!-- navbar -->
+
+   <!-- navbar -->
   <div class="container-fluid">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -205,12 +235,16 @@
     </div>
   </div>
 
-
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn " data-wow-delay="0.1s">
         <div class="container text-center py-5 " style="margin-top: 6rem; margin-bottom: 4rem;">
-            <h1 class="display-2 text-white mb-3 animated slideInDown">Contact Us</h1>
-          
+            <h1 class="display-2 text-white mb-3 animated slideInDown">Company CSR</h1>
+            <div class="animated slideInDown justify-content-center mb-0 ">
+                <button class="heading_button  py-3 px-5 wow fadeIn" data-wow-delay="0.5s">
+                    <a style="   color: #0a0a2a;" href="">Contact Us</a>
+                </button>
+
+            </div>
 
         </div>
     </div>
@@ -218,122 +252,42 @@
 
     <!-- Contact Start -->
     <div class="container-fluid pb-5">
-        <div class="container pb-5">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="display-6 mb-3">Have Any Query? Feel Free To Contact Us</h1>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue, iaculis id elit eget, ultrices pulvinar tortor.</p>
-            </div>
-            <div class="row contact-info position-relative g-4 mb-5">
-    <!-- Visit Our Office -->
-    <div class="col-lg-3 col-md-6">
-        <div class="d-flex flex-column justify-content-center bg-primary p-4 h-100">
-            <div class=" flex-shrink-0 mb-3">
-                <i class="bi bi-geo-alt text-dark fs-2"></i>
-            </div>
-            <h5 class="text-white">Visit Our Office</h5>
-            <p class="text-white mb-1">House No # 58 (9th & 10th Floor),</p>
-            <p class="text-white mb-1">Road No # 06 & 11, Block # C, Banani, Dhaka</p>
-            <p class="text-white mb-1">City: Dhaka-1213</p>
-            <p class="text-white mb-0">Country: Bangladesh</p>
-        </div>
+<section class="company-csr py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold" style="color:#0a0a2a;">Company CSR</h2>
+      <p class="text-muted mb-0">Our initiatives to support communities and create positive impact.</p>
     </div>
 
-    <!-- Visit Our Factory -->
-    <div class="col-lg-3 col-md-6">
-        <div class="d-flex flex-column justify-content-center bg-primary p-4 h-100">
-            <div class=" flex-shrink-0 mb-3">
-                <i class="bi bi-building text-dark fs-2"></i>
-            </div>
-            <h5 class="text-white">Visit Our Factory</h5>
-            <p class="text-white mb-1">Bara Rangamatia, Ashulia, Savar, Dhaka</p>
-            <p class="text-white mb-1">City: Savar, Dhaka-1341</p>
-            <p class="text-white mb-0">Country: Bangladesh</p>
-        </div>
-    </div>
-
-    <!-- 24/7 Quick Contact -->
-    <div class="col-lg-3 col-md-6">
-        <div class="d-flex flex-column justify-content-center bg-primary p-4 h-100">
-            <div class=" flex-shrink-0 mb-3">
-                <i class="bi bi-telephone text-dark fs-2"></i>
-            </div>
-            <h5 class="text-white">24/7 Quick Contact</h5>
-            <p class="text-white mb-1">Office: +880-2222285583</p>
-            <p class="text-white mb-1">Email: info@unitex-bd.net</p>
-            <p class="text-white mb-0">Website: www.unitex-bd.net</p>
-        </div>
-    </div>
-
-    <!-- Working Hours -->
-    <div class="col-lg-3 col-md-6">
-        <div class="d-flex flex-column justify-content-center bg-primary p-4 h-100">
-            <div class=" flex-shrink-0 mb-3">
-                <i class="bi bi-clock text-dark fs-2"></i>
-            </div>
-            <h5 class="text-white">Working Hours</h5>
-            <p class="text-white mb-1">Sat - Thu: 9.00am to 6.00pm</p>
-            <p class="text-white mb-0">Friday: We are Closed</p>
-        </div>
-    </div>
-</div>
-
-         
-            <div class="row g-5">
-          
-                   <div class="col-lg-6 wow fadeInUp card border-0 shadow-sm rounded-4 p-4 p-lg-5" data-wow-delay="0.5s">
-          <h2 class="mb-4">Leave Your Message</h2>
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <div class="form-floating">
-                <input type="text" class="form-control" id="name" placeholder="Your Name">
-                <label for="name">Your Name</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-floating">
-                <input type="email" class="form-control" id="mail" placeholder="Your Email">
-                <label for="mail">Your Email</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-floating">
-                <input type="text" class="form-control" id="mobile" placeholder="Your Mobile">
-                <label for="mobile">Your Mobile</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-floating">
-                <select class="form-select" id="service">
-                  <option selected>Pathology Testing</option>
-                  <option value="">Microbiology Tests</option>
-                  <option value="">Biochemistry Tests</option>
-                  <option value="">Histopatology Tests</option>
-                </select>
-                <label for="service">Choose A Service</label>
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a message here" id="message"
-                  style="height: 130px"></textarea>
-                <label for="message">Message</label>
-              </div>
-            </div>
-            <div class="col-12 text-center">
-              <button class="explore btn btn-primary w-100 py-3" type="submit">Submit Now</button>
-            </div>
+    <div class="row g-5">
+      <!-- CSR Section 1 -->
+      <div class="col-lg-6 col-md-12">
+        <div class="csr-card shadow-sm rounded overflow-hidden">
+          <img src="img/csr1.jpg" class="img-fluid w-100" alt="CSR Event 1">
+          <div class="p-4">
+            <small class="text-muted">12 Aug 2025 | 10:00 AM</small>
+            <h5 class="fw-bold mt-2">Community Health Camp</h5>
+            <p class="text-muted">We organized a health camp providing free checkups and medicines to underprivileged communities in our area.</p>
           </div>
         </div>
-              
-                <div class="col-lg-6 wow fadeInUp card border-0 shadow-sm rounded-4 p-4 p-lg-5" data-wow-delay="0.5s">
-                    <iframe class="w-100 h-100"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                    frameborder="0" style="min-height: 300px; border:0;" allowfullscreen="" aria-hidden="false"
-                    tabindex="0"></iframe>
-                </div>
-            </div>
+      </div>
+
+      <!-- CSR Section 2 -->
+      <div class="col-lg-6 col-md-12">
+        <div class="csr-card shadow-sm rounded overflow-hidden">
+          <img src="img/csr2.jpg" class="img-fluid w-100" alt="CSR Event 2">
+          <div class="p-4">
+            <small class="text-muted">05 Sep 2025 | 02:00 PM</small>
+            <h5 class="fw-bold mt-2">Educational Support Program</h5>
+            <p class="text-muted">Distributed school supplies and scholarship support for local students to encourage better education opportunities.</p>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+</section>
+
+</div>
     <!-- Contact End -->
 
 
@@ -422,6 +376,37 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const items = document.querySelectorAll(".gallery-item");
+
+    function filterGallery(filter) {
+      items.forEach(item => {
+        if (filter === "all" || item.classList.contains(filter)) {
+          item.classList.add("show");
+        } else {
+          item.classList.remove("show");
+        }
+      });
+    }
+
+    // default show all
+    filterGallery("all");
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", function () {
+        // remove active class
+        filterBtns.forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+
+        // filter items
+        let filter = this.getAttribute("data-filter");
+        filterGallery(filter);
+      });
+    });
+  });
+</script>
 </body>
 
 </html>
